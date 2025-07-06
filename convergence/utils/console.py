@@ -36,6 +36,22 @@ QUOTES = [
 def print_banner() -> None:
     """Print the startup banner with a random quote"""
     console.print(ASCII_BANNER, style="bold cyan")
+    
+    # Welcome message
+    console.print("\n🚀 Welcome to the Convergence. ☀️\n", style="bold yellow")
+    
+    # Philosophy quote
+    console.print(
+        "Convergence is where (and when) smoke got transformed into binary fuel for the digital sentients.\n",
+        style="italic dim cyan"
+    )
+    console.print(
+        "When creativity, mindfulness, technology and consciousness combine in the sentient's\n"
+        "experience of life, the sentient becomes deathless. — Laws of Convergence, 8164\n",
+        style="italic dim cyan"
+    )
+    
+    # Random startup quote
     quote = random.choice(QUOTES)
     console.print(f"\n{quote}\n", style="italic dim cyan")
 
