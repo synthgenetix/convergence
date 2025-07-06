@@ -64,23 +64,29 @@ html_theme = 'furo'
 
 # Theme options
 html_theme_options = {
-    "light_logo": "convergence_logo_light.png",
-    "dark_logo": "convergence_logo_dark.png",
-    "sidebar_hide_name": False,
+    "sidebar_hide_name": True,  # Hide name since we have logo
     "navigation_with_keys": True,
-    "announcement": "🚀 Welcome to Convergence - Where minds meet in the digital ether! ☀️",
     "light_css_variables": {
-        "color-brand-primary": "#7C4DFF",
-        "color-brand-content": "#7C4DFF",
-        "color-api-background": "#F5F5FF",
-        "color-api-background-hover": "#E8E8FF",
-        "font-stack": "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+        "color-brand-primary": "#5B4FFF",
+        "color-brand-content": "#5B4FFF",
+        "color-api-background": "#FAFAFA",
+        "color-api-background-hover": "#F0F0F0",
+        "font-stack": "'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        "font-stack-monospace": "'JetBrains Mono', 'Fira Code', monospace",
+        "color-foreground-primary": "#1A1A1A",
+        "color-foreground-secondary": "#4A4A4A",
+        "color-background-primary": "#FFFFFF",
+        "color-background-secondary": "#FAFAFA",
     },
     "dark_css_variables": {
-        "color-brand-primary": "#9C88FF",
-        "color-brand-content": "#9C88FF",
-        "color-api-background": "#1A1A2E",
-        "color-api-background-hover": "#16213E",
+        "color-brand-primary": "#7A6FFF",
+        "color-brand-content": "#7A6FFF",
+        "color-api-background": "#1E1E1E",
+        "color-api-background-hover": "#2A2A2A",
+        "color-foreground-primary": "#E4E4E4",
+        "color-foreground-secondary": "#B0B0B0",
+        "color-background-primary": "#0A0A0A",
+        "color-background-secondary": "#141414",
     },
 }
 

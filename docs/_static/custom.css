@@ -1,150 +1,303 @@
-/* Custom CSS for Convergence Documentation */
+/* Minimal, clean CSS for Convergence Documentation */
 
-/* Smooth animations */
+/* Import Lexend font */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Reset and base styles */
+:root {
+    --transition-speed: 0.15s;
+}
+
+/* Remove tacky transitions */
 * {
-    transition: all 0.2s ease;
+    transition: color var(--transition-speed) ease,
+                background-color var(--transition-speed) ease,
+                border-color var(--transition-speed) ease;
 }
 
-/* Enhanced code blocks */
-.highlight {
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.dark .highlight {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Beautiful cards */
-.sd-card {
-    border-radius: 12px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.sd-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(124, 77, 255, 0.15);
-}
-
-/* Announcement bar styling */
-.announcement {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white !important;
-    font-weight: 500;
-}
-
-.announcement a {
-    color: #ffd700 !important;
-    text-decoration: underline;
-}
-
-/* Enhanced note blocks */
-.admonition.note {
-    border-left: 4px solid #7C4DFF;
-    background-color: rgba(124, 77, 255, 0.05);
-}
-
-.dark .admonition.note {
-    background-color: rgba(156, 136, 255, 0.1);
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Better typography */
-.content {
-    line-height: 1.6;
+/* Typography improvements */
+body {
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.65;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    margin-top: 2em;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
 }
 
-/* Code copy button enhancement */
-.copybtn {
-    transition: opacity 0.2s ease;
-    border-radius: 4px;
+/* Hero section */
+.hero-section {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    margin-bottom: 2rem;
 }
 
-.copybtn:hover {
-    background-color: rgba(124, 77, 255, 0.1);
+.hero-title {
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.03em;
+    color: var(--color-foreground-primary);
 }
 
-/* Sidebar enhancements */
-.sidebar-scroll {
-    scrollbar-width: thin;
-    scrollbar-color: #7C4DFF transparent;
+.hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-foreground-secondary);
+    margin: 0;
 }
 
-.sidebar-scroll::-webkit-scrollbar {
-    width: 6px;
-}
-
-.sidebar-scroll::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.sidebar-scroll::-webkit-scrollbar-thumb {
-    background-color: #7C4DFF;
-    border-radius: 3px;
-}
-
-/* Enhanced search */
-.sidebar-search-container input {
+/* Hero code block */
+.hero-code {
+    margin: 2rem auto;
+    max-width: 700px;
     border-radius: 8px;
-    padding: 0.5em 1em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .sd-card {
-        margin-bottom: 1em;
-    }
+.dark .hero-code {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Philosophy quote styling */
-blockquote {
-    border-left: 4px solid #7C4DFF;
-    padding-left: 1em;
+/* Philosophy quote */
+.philosophy-quote {
+    margin: 3rem auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.philosophy-quote blockquote {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.philosophy-quote p {
     font-style: italic;
-    color: #666;
+    color: var(--color-foreground-secondary);
+    margin: 0.5rem 0;
+    font-weight: 300;
 }
 
-.dark blockquote {
-    color: #aaa;
+.philosophy-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--color-foreground-secondary);
+    font-style: normal;
 }
 
-/* Enhanced tables */
-table {
+/* Minimal cards */
+.minimal-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 8px;
+    box-shadow: none;
+    transition: border-color var(--transition-speed) ease;
+    background: var(--color-background-primary);
+}
+
+.dark .minimal-card {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.minimal-card:hover {
+    border-color: var(--color-brand-primary);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.dark .minimal-card:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.minimal-card .sd-card-title {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.minimal-card .sd-card-text {
+    font-size: 0.875rem;
+    color: var(--color-foreground-secondary);
+}
+
+/* Grid spacing */
+.getting-started-grid,
+.integration-grid,
+.developer-grid {
+    margin: 2rem 0;
+}
+
+/* Use cases */
+.use-cases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.use-case {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: var(--color-background-secondary);
+}
+
+.use-case h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.use-case p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-foreground-secondary);
+}
+
+/* Clean up sidebar */
+.sidebar-brand {
+    margin-bottom: 2rem;
+}
+
+.sidebar-logo {
+    max-width: 120px;
+    margin: 0 auto;
+    display: block;
+}
+
+.toctree-l1 > a {
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.toctree-l2 > a {
+    font-size: 0.875rem;
+}
+
+/* Simplify code blocks */
+.highlight {
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.dark .highlight {
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Clean admonitions */
+.admonition {
+    border-radius: 6px;
+    border: 1px solid;
+    box-shadow: none;
+}
+
+.admonition.note {
+    background-color: rgba(91, 79, 255, 0.05);
+    border-color: rgba(91, 79, 255, 0.2);
+}
+
+.dark .admonition.note {
+    background-color: rgba(122, 111, 255, 0.08);
+    border-color: rgba(122, 111, 255, 0.2);
+}
+
+/* Improve tables */
+table {
+    border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: none;
 }
 
 .dark table {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.06);
 }
 
-/* API endpoint styling */
-.http {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.9em;
+/* Clean search */
+.sidebar-search-container input {
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
 }
 
-.http.get { color: #22c55e; }
-.http.post { color: #3b82f6; }
-.http.put { color: #f59e0b; }
-.http.delete { color: #ef4444; }
-
-/* Loading animation for search */
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+.dark .sidebar-search-container input {
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
-.searching {
-    animation: pulse 1.5s ease-in-out infinite;
+/* Remove announcement bar - too tacky */
+.announcement {
+    display: none;
+}
+
+/* Improve copy button */
+.copybtn {
+    opacity: 0;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.highlight:hover .copybtn {
+    opacity: 0.5;
+}
+
+.copybtn:hover {
+    opacity: 1 !important;
+}
+
+/* Better blockquotes */
+blockquote {
+    border-left: 2px solid var(--color-brand-primary);
+    padding-left: 1rem;
+    font-style: normal;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .use-cases {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Remove excessive shadows and borders */
+.sd-shadow-sm {
+    box-shadow: none !important;
+}
+
+.sd-rounded-3 {
+    border-radius: 8px !important;
+}
+
+/* Improve link styling */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Clean up navigation */
+.sidebar-scroll {
+    scrollbar-width: thin;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+
+.dark .sidebar-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
 }
