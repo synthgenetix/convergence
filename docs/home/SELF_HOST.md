@@ -148,10 +148,10 @@ API_PORT=8000
 
 ### Security Considerations
 
-1. **Use HTTPS**: Deploy behind a reverse proxy (Nginx/Caddy)
-2. **API Keys**: Enable authentication for production
-3. **Firewall**: Restrict access to necessary ports only
-4. **Updates**: Keep dependencies updated
+1. **Use HTTPS**: Deploy behind a reverse proxy (Nginx/Caddy).
+2. **API Keys**: Enable authentication for production.
+3. **Firewall**: Restrict access to necessary ports only.
+4. **Updates**: Keep dependencies updated.
 
 ### Reverse Proxy Setup (Nginx)
 
@@ -189,23 +189,23 @@ curl http://localhost:8000/auth/status
 ### Logging
 
 Logs are written to:
-- Console (stdout/stderr)
-- Optional file logging via LOG_FILE environment variable
+- Console (stdout/stderr).
+- Optional file logging via LOG_FILE environment variable.
 
 ### Metrics
 
 Consider adding:
-- Prometheus metrics endpoint
-- Application Performance Monitoring (APM)
-- Error tracking (Sentry)
+- Prometheus metrics endpoint.
+- Application Performance Monitoring (APM).
+- Error tracking (Sentry).
 
 ## Scaling
 
 ### Horizontal Scaling
 
-- Deploy multiple API instances
-- Use a load balancer
-- Share nothing architecture
+- Deploy multiple API instances.
+- Use a load balancer.
+- Share nothing architecture.
 
 ### Performance Tuning
 
@@ -225,9 +225,9 @@ CACHE_TTL=3600
 
 ### Data to Backup
 
-- Environment configuration
-- Generated audio files (if persisted)
-- API keys database (if using authentication)
+- Environment configuration.
+- Generated audio files (if persisted).
+- API keys database (if using authentication).
 
 ### Backup Strategy
 
@@ -255,12 +255,12 @@ tar -czf $BACKUP_DIR/audio-$DATE.tar.gz /opt/convergence/output/
    ```
 
 2. **Memory Issues**
-   - Increase container/VM memory
-   - Reduce MAX_WORKERS
+   - Increase container/VM memory.
+   - Reduce MAX_WORKERS.
 
 3. **API Key Errors**
-   - Verify OPENAI_API_KEY is set
-   - Check API key permissions
+   - Verify OPENAI_API_KEY is set.
+   - Check API key permissions.
 
 ### Debug Mode
 
@@ -272,6 +272,6 @@ DEBUG=true
 
 ## Next Steps
 
-- Configure [API Key Management](API_KEY_MANAGEMENT.md)
-- Set up monitoring and alerts
-- Review [Security](../README.md#-security) best practices
+- Configure [API Key Management](API_KEY_MANAGEMENT.md).
+- Set up monitoring and alerts.
+- Review [Security](../README.md#-security) best practices.
