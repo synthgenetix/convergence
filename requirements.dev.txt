@@ -9,3 +9,6 @@ mypy>=1.8.0
 bandit>=1.7.5
 types-click
 types-colorama
+setuptools
+wheel
+twine
