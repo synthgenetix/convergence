@@ -88,7 +88,7 @@ def show_aesthetic_help():
     )
     options_table.add_row("--duration", "-d", "⏱️  Duration in minutes (default: 10, range: 1-60)")
     options_table.add_row(
-        "--vibe", "-v", "🎭 Conversation style (default: 'Storytelling and depiction')"
+        "--vibe", "-v", "🎭 Conversation style (default: 'NA')"
     )
     options_table.add_row(
         "--output", "-o", "💾 Output file path (default: output/convergence_audio_*.wav)"
@@ -147,8 +147,8 @@ def show_aesthetic_help():
 @click.option(
     "--vibe",
     "-v",
-    default="Storytelling and depiction of events",
-    help="The conversation style/vibe (default: 'Storytelling and depiction of events')",
+    default="NA",
+    help="The conversation style/vibe (default: 'NA')",
 )
 @click.option(
     "--output",
@@ -215,9 +215,9 @@ def main(
 
     try:
         # Validate inputs
-        if not prompt and not conversation and not generate_transcript:
+        if not prompt and not conversation:
             print_error(
-                "Either --prompt, --conversation, or --generate-transcript must be provided",
+                "--prompt is required (unless using --conversation)",
                 "Missing Required Input",
             )
             help_console = Console()
@@ -306,14 +306,6 @@ def main(
         # Handle transcript generation mode
         if generate_transcript:
             console.print("\n📝 [bold cyan]GENERATING TRANSCRIPT[/bold cyan]")
-
-            # Use defaults if not provided
-            if not prompt:
-                prompt = "Two friends having a casual conversation about technology"
-                console.print(f"   Using default prompt: {prompt}")
-
-            if not vibe:
-                vibe = "Casual and friendly"
 
             # Create configuration for transcript generation
             config = ConversationConfig(
