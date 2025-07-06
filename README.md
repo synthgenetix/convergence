@@ -2,9 +2,9 @@
 
 # 🧙🏼‍♂️ CONVERGENCE
 
-![Convergence Logo](assets/convergence_logo.png)
+<p align="center"><img src="assets/convergence_logo.png" width="230" alt="Convergence Logo">
 
-**Where minds meet in the digital ether**
+**Where minds meet in the digital ether.**
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
