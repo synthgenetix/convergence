@@ -1,0 +1,43 @@
+{
+  "transcript": {
+    "items": [
+      {
+        "name": "Alice",
+        "gender": "female",
+        "role": "Developer",
+        "message": "Hey Bob, did you read about the new GPT-4o release?",
+        "timestamp": "2025-07-07T10:00:00"
+      },
+      {
+        "name": "Bob",
+        "gender": "male",
+        "role": "Engineer",
+        "message": "Yeah! It's incredible how it can handle text, audio, and vision all at once.",
+        "timestamp": "2025-07-07T10:00:05"
+      },
+      {
+        "name": "Alice",
+        "gender": "female",
+        "role": "Developer",
+        "message": "Exactly! And the real-time audio generation is blazing fast.",
+        "timestamp": "2025-07-07T10:00:10"
+      },
+      {
+        "name": "Bob",
+        "gender": "male",
+        "role": "Engineer",
+        "message": "I wonder how it could be integrated into our voice assistant project.",
+        "timestamp": "2025-07-07T10:00:15"
+      }
+    ]
+  },
+  "config": {
+    "prompt": "Two colleagues discussing the new GPT-4o model",
+    "duration": 5,
+    "vibe": "Excited and curious",
+    "output_path": "output/convergence_audio_test.wav",
+    "openai_api_key": "$env.OPENAI_API_KEY",
+    "outline": "1. GPT-4o release\n2. Multimodal features\n3. Use cases.\n4. Integration into voice assistant.",
+    "outline_source": "manual"
+  }
+}
