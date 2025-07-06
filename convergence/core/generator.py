@@ -7,9 +7,9 @@ import time
 from pathlib import Path
 from typing import Optional
 
-from convergence.core.models import ConversationConfig, ConversationResult
-from convergence.services.audio import AudioService
-from convergence.services.transcript import TranscriptService
+from convergence.core.models import ConversationConfig, ConversationResult, Conversation
+from convergence.ai.transcript_generator import generate_transcript as generate_transcript_ai
+from convergence.ai.text_to_speech import conversation_to_audio
 from convergence.utils.console import print_error, print_info, print_success, print_warning
 
 
@@ -18,8 +18,6 @@ class ConversationGenerator:
 
     def __init__(self, config: ConversationConfig):
         self.config = config
-        self.transcript_service = TranscriptService()
-        self.audio_service = AudioService()
 
     async def generate(self) -> ConversationResult:
         """
@@ -71,16 +69,16 @@ class ConversationGenerator:
             print_error(f"Unexpected error: {str(e)}", "Generation Failed")
             return ConversationResult(success=False, error=f"Unexpected error: {str(e)}")
 
-    async def _generate_transcript_with_retry(self, max_retries: int = 3) -> Optional[str]:
+    async def _generate_transcript_with_retry(self, max_retries: int = 3):
         """Generate transcript with retry logic"""
         for attempt in range(max_retries):
             try:
-                transcript = await self.transcript_service.generate(
-                    prompt=self.config.prompt,
-                    duration=self.config.duration,
-                    vibe=self.config.vibe,
-                    outline=self.config.outline,
+                # Use the real AI transcript generator
+                transcript, error = await asyncio.to_thread(
+                    generate_transcript_ai, self.config
                 )
+                if error:
+                    raise Exception(error)
                 if transcript:
                     return transcript
             except Exception as e:
@@ -90,12 +88,27 @@ class ConversationGenerator:
         return None
 
     async def _convert_to_audio_with_retry(
-        self, transcript: str, max_retries: int = 2
+        self, transcript, max_retries: int = 2
     ) -> Optional[bytes]:
         """Convert transcript to audio with retry logic"""
         for attempt in range(max_retries):
             try:
-                audio_data = await self.audio_service.convert(transcript)
+                # Create a Conversation object from the transcript
+                conversation = Conversation(
+                    transcript=transcript,
+                    config=self.config
+                )
+                
+                # Use the real TTS service
+                audio_data, error = await asyncio.to_thread(
+                    conversation_to_audio,
+                    conversation,
+                    self.config.openai_api_key or "",
+                    "nova"  # Default voice
+                )
+                
+                if error:
+                    raise Exception(error)
                 if audio_data:
                     return audio_data
             except Exception as e:
@@ -120,17 +133,17 @@ class ConversationGenerator:
 
         for attempt in range(max_retries):
             try:
-                success = await self.audio_service.save(audio_data, self.config.output_path)
-                if success:
-                    return self.config.output_path
+                # Write the audio data directly
+                self.config.output_path.write_bytes(audio_data)
+                return self.config.output_path
             except Exception as e:
                 print_warning(f"Save attempt {attempt + 1} failed: {str(e)}")
                 if attempt < max_retries - 1:
                     await asyncio.sleep(1)
         return None
 
-    def _save_transcript_fallback(self, transcript: str) -> ConversationResult:
-        """Fallback to save transcript as text file"""
+    def _save_transcript_fallback(self, transcript) -> ConversationResult:
+        """Fallback to save transcript as JSON file"""
         try:
             # Generate default path if not provided
             if not self.config.output_path:
@@ -139,15 +152,32 @@ class ConversationGenerator:
                 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                 self.config.output_path = Path(f"output/convergence_audio_{timestamp}.wav")
 
-            transcript_path = self.config.output_path.with_suffix(".txt")
+            transcript_path = self.config.output_path.with_suffix(".json")
             transcript_path.parent.mkdir(parents=True, exist_ok=True)
-            transcript_path.write_text(transcript)
+            
+            # Save as JSON
+            import json
+            conversation_data = {
+                "transcript": transcript.model_dump(),
+                "config": {
+                    "prompt": self.config.prompt,
+                    "duration": self.config.duration,
+                    "vibe": self.config.vibe,
+                    "output_path": str(self.config.output_path) if self.config.output_path else None,
+                    "openai_api_key": "$env.OPENAI_API_KEY",
+                    "outline": self.config.outline,
+                    "outline_source": self.config.outline_source,
+                },
+            }
+            
+            with open(transcript_path, "w") as f:
+                json.dump(conversation_data, f, indent=2, default=str)
 
             return ConversationResult(
                 success=True,
                 output_path=transcript_path,
                 transcript=transcript,
-                error="Audio generation failed, transcript saved as text",
+                error="Audio generation failed, transcript saved as JSON",
             )
         except Exception as e:
             return ConversationResult(

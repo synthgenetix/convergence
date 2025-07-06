@@ -40,27 +40,6 @@ class ConversationConfig(BaseModel):
         }
 
 
-class ConversationResult(BaseModel):
-    """Result of conversation generation"""
-
-    success: bool = Field(default=False, description="Whether generation was successful")
-    output_path: Optional[Path] = Field(default=None, description="Path to generated audio file")
-    duration_seconds: Optional[int] = Field(default=None, description="Actual duration in seconds")
-    transcript: Optional[str] = Field(default=None, description="Generated conversation transcript")
-    error: Optional[str] = Field(default=None, description="Error message if failed")
-
-    class Config:
-        json_schema_extra = {
-            "example": {
-                "success": True,
-                "output_path": "output/convergence_audio_20240101_120000.wav",
-                "duration_seconds": 600,
-                "transcript": "Person A: Hey, did you hear about...",
-                "error": None,
-            }
-        }
-
-
 class TranscriptItem(BaseModel):
     """Item in the transcript"""
 
@@ -103,6 +82,27 @@ class Transcript(BaseModel):
                         "timestamp": "2021-01-01 12:01:00",
                     },
                 ]
+            }
+        }
+
+
+class ConversationResult(BaseModel):
+    """Result of conversation generation"""
+
+    success: bool = Field(default=False, description="Whether generation was successful")
+    output_path: Optional[Path] = Field(default=None, description="Path to generated audio file")
+    duration_seconds: Optional[int] = Field(default=None, description="Actual duration in seconds")
+    transcript: Optional[Transcript] = Field(default=None, description="Generated conversation transcript")
+    error: Optional[str] = Field(default=None, description="Error message if failed")
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "success": True,
+                "output_path": "output/convergence_audio_20240101_120000.wav",
+                "duration_seconds": 600,
+                "transcript": "Person A: Hey, did you hear about...",
+                "error": None,
             }
         }
 

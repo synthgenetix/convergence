@@ -11,6 +11,10 @@ from pathlib import Path
 from typing import Optional
 
 import click
+from rich.console import Console
+from rich.panel import Panel
+from rich.table import Table
+from rich.text import Text
 from rich.traceback import install
 
 from convergence.ai.text_to_speech import conversation_to_audio
@@ -32,53 +36,142 @@ from convergence.utils.env import load_environment, validate_environment
 install(show_locals=True)
 
 
-@click.command()
+def show_aesthetic_help():
+    """Display aesthetic help information"""
+    help_console = Console()
+
+    # Header
+    header = Panel(
+        Text("🌌 CONVERGENCE", justify="center", style="bold cyan"),
+        subtitle="AI-Powered Audio Conversation Generator",
+        style="bold blue",
+        padding=(1, 2),
+    )
+    help_console.print(header)
+
+    # Description
+    help_console.print("\n[dim]Generate realistic audio conversations between AI personas.[/dim]\n")
+
+    # Usage examples
+    examples_table = Table(title="📚 Usage Examples", show_header=False, box=None, padding=(0, 2))
+    examples_table.add_column(style="bold green")
+    examples_table.add_column(style="dim")
+
+    examples_table.add_row(
+        "Basic conversation:", "convergence --prompt 'Two friends discussing AI' --duration 5"
+    )
+    examples_table.add_row(
+        "With custom style:",
+        "convergence -p 'Tech podcast' -d 10 -v 'Professional and informative'",
+    )
+    examples_table.add_row(
+        "From outline:", "convergence -p 'Product review' -u outline.txt -o review.wav"
+    )
+    examples_table.add_row(
+        "Generate transcript:", "convergence --generate-transcript -p 'Daily news' -d 15"
+    )
+    examples_table.add_row(
+        "From conversation:", "convergence --conversation saved_convo.json -o final_audio.wav"
+    )
+
+    help_console.print(examples_table)
+    help_console.print()
+
+    # Options
+    options_table = Table(title="⚙️  Options", show_header=True, header_style="bold magenta")
+    options_table.add_column("Option", style="cyan", width=25)
+    options_table.add_column("Short", style="green", width=8)
+    options_table.add_column("Description", style="white")
+
+    options_table.add_row(
+        "--prompt", "-p", "🎯 The conversation topic (required unless using --conversation)"
+    )
+    options_table.add_row("--duration", "-d", "⏱️  Duration in minutes (default: 10, range: 1-60)")
+    options_table.add_row(
+        "--vibe", "-v", "🎭 Conversation style (default: 'Storytelling and depiction')"
+    )
+    options_table.add_row(
+        "--output", "-o", "💾 Output file path (default: output/convergence_audio_*.wav)"
+    )
+    options_table.add_row(
+        "--outline", "-u", "📋 Path to outline file or URL to guide the conversation"
+    )
+    options_table.add_row("--conversation", "-c", "🗣️  Load pre-defined conversation from JSON file")
+    options_table.add_row(
+        "--generate-transcript", "-gt", "📝 Generate conversation transcript only (JSON output)"
+    )
+    options_table.add_row("--env", "-e", "🔐 Path to .env file for API keys")
+    options_table.add_row("--help", "-h", "📖 Show this help message")
+
+    help_console.print(options_table)
+    help_console.print()
+
+    # Requirements
+    req_panel = Panel(
+        "[yellow]⚡ Requirements:[/yellow]\n"
+        "• OPENAI_API_KEY environment variable must be set.\n"
+        "• Python 3.8 or higher.\n"
+        "• Internet connection for AI processing.",
+        title="📋 Prerequisites",
+        style="dim",
+        padding=(0, 2),
+    )
+    help_console.print(req_panel)
+
+    # Footer
+    help_console.print(
+        "\n[dim]For more information, visit the documentation or run with --help[/dim]"
+    )
+    help_console.print("[dim]Made with ❤️  by the Convergence team[/dim]\n")
+
+
+@click.command(context_settings=dict(help_option_names=["-h", "--help"]))
 @click.option(
     "--prompt",
     "-p",
-    help="🎯 The conversation topic/prompt (required unless using --conversation)",
+    help="The conversation topic/prompt (required unless using --conversation)",
 )
 @click.option(
     "--duration",
     "-d",
     type=int,
     default=10,
-    help="⏱️  Approximate duration in minutes (1-60)",
+    help="Approximate duration in minutes (1-60, default: 10)",
 )
 @click.option(
     "--env",
     "-e",
     type=click.Path(exists=True),
-    help="🔐 Path to env file for OPENAI_API_KEY",
+    help="Path to .env file containing OPENAI_API_KEY",
 )
 @click.option(
     "--vibe",
     "-v",
     default="Storytelling and depiction of events",
-    help="🎭 The conversation vibe/style",
+    help="The conversation style/vibe (default: 'Storytelling and depiction of events')",
 )
 @click.option(
     "--output",
     "-o",
     type=click.Path(),
-    help="💾 Output file path (default: output/convergence_audio_${timestamp}.wav)",
+    help="Output file path (default: output/convergence_audio_TIMESTAMP.wav)",
 )
 @click.option(
     "--outline",
     "-u",
-    help="📋 Path to outline file or URL to guide the conversation",
+    help="Path to outline file or URL to guide the conversation structure",
 )
 @click.option(
     "--conversation",
     "-c",
     type=click.Path(exists=True),
-    help="🗣️ Path to JSON file containing a pre-defined conversation",
+    help="Path to JSON file containing a pre-defined conversation transcript",
 )
 @click.option(
     "--generate-transcript",
     "-gt",
     is_flag=True,
-    help="📝 Generate a conversation transcript and save as JSON",
+    help="Generate a conversation transcript and save as JSON (no audio output)",
 )
 def main(
     prompt: Optional[str],
@@ -93,8 +186,30 @@ def main(
     """
     🌌 CONVERGENCE - AI-Powered Audio Conversation Generator
 
-    Generate realistic audio conversations between AI personas.
+    Generate realistic audio conversations between AI personas using advanced AI models.
+    Create podcasts, interviews, stories, or any dialogue-based content with natural voices.
+
+    Examples:
+
+      # Basic conversation
+      convergence --prompt "Two friends discussing AI" --duration 5
+
+      # Professional podcast with outline
+      convergence -p "Tech trends 2024" -d 20 -v "Professional podcast" -u outline.txt
+
+      # Generate transcript only
+      convergence --generate-transcript -p "Climate change debate" -d 15
+
+      # Convert existing conversation to audio
+      convergence --conversation saved_transcript.json -o final_podcast.wav
+
+    For detailed help, run 'convergence' without any arguments.
     """
+    # Check if no arguments provided (show help)
+    if len(sys.argv) == 1:
+        show_aesthetic_help()
+        sys.exit(0)
+
     # Show banner
     print_banner()
 
@@ -104,6 +219,10 @@ def main(
             print_error(
                 "Either --prompt, --conversation, or --generate-transcript must be provided",
                 "Missing Required Input",
+            )
+            help_console = Console()
+            help_console.print(
+                "\n[dim]Run 'convergence' without arguments to see usage examples.[/dim]\n"
             )
             sys.exit(1)
 
@@ -177,7 +296,9 @@ def main(
             # Write audio to file
             output_path.write_bytes(audio_data)
 
-            print_success(f"Audio saved to: {output_path}", "🎉 Conversation Audio Generated!")
+            print_success(
+                f"Audio saved to: {output_path.absolute()}", "🎉 Conversation Audio Generated!"
+            )
             console.print(f"   Size: {len(audio_data):,} bytes")
 
             sys.exit(0)
@@ -278,6 +399,8 @@ def main(
         else:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             output_path = Path(f"output/convergence_audio_{timestamp}.wav")
+            # Ensure output directory exists
+            output_path.parent.mkdir(parents=True, exist_ok=True)
 
         config = ConversationConfig(
             prompt=prompt or "",
@@ -307,7 +430,10 @@ def main(
 
         # Display result
         if result.success:
-            print_success(f"Conversation saved to: {result.output_path}", "🎉 Generation Complete!")
+            print_success(
+                f"Conversation saved to: {result.output_path.absolute() if result.output_path else 'None'}",
+                "🎉 Generation Complete!",
+            )
             if result.duration_seconds:
                 console.print(f"   Total time: {result.duration_seconds} seconds")
         else:

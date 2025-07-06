@@ -62,7 +62,7 @@ def text_to_audio(
 def conversation_to_audio(
     conversation: Conversation,
     openai_api_key: str,
-    voice_id: str,
+    voice_id: str,  # Currently unused - voices are assigned randomly per speaker
     model: str = "tts-1",
     instructions: str = "Speak in a cheerful and positive tone.",
 ) -> Tuple[Optional[bytes], Optional[str]]:
@@ -70,7 +70,8 @@ def conversation_to_audio(
     Convert a conversation to audio and return the audio buffer.
     """
     try:
-        openai_api_key = conversation.config.openai_api_key or ""
+        # Use the provided API key, fall back to conversation config if not provided
+        api_key = openai_api_key or conversation.config.openai_api_key or ""
         transcript = conversation.transcript
 
         name_to_voice_id = {}
@@ -84,12 +85,12 @@ def conversation_to_audio(
                 else:
                     name_to_voice_id[item.name] = get_random_male_voice_id()
 
-            voice_id = name_to_voice_id[item.name]
+            assigned_voice_id = name_to_voice_id[item.name]
 
             audio_data, error = text_to_audio(
                 item.message,
-                openai_api_key,
-                voice_id=voice_id,
+                api_key,
+                voice_id=assigned_voice_id,
                 model=model,
                 instructions=instructions,
             )
@@ -104,13 +105,37 @@ def conversation_to_audio(
         audio_segments.sort(key=lambda x: x[0])
 
         # Concatenate all audio segments
+        # For WAV files, we need to strip headers from all but the first segment
         net_audio_buffer = io.BytesIO()
-        for _, segment in audio_segments:
+
+        for idx, (_, segment) in enumerate(audio_segments):
             if segment:
-                net_audio_buffer.write(segment)
+                if idx == 0:
+                    # Keep the full WAV file for the first segment
+                    net_audio_buffer.write(segment)
+                else:
+                    # Skip WAV header (44 bytes) for subsequent segments
+                    # Only if it's a WAV file (starts with RIFF)
+                    if segment[:4] == b"RIFF":
+                        net_audio_buffer.write(segment[44:])
+                    else:
+                        net_audio_buffer.write(segment)
 
         net_audio_buffer.seek(0)
-        return net_audio_buffer.read(), None
+        audio_bytes = net_audio_buffer.read()
+
+        # Update WAV header with correct file size if it's a WAV file
+        if audio_bytes[:4] == b"RIFF":
+            audio_array = bytearray(audio_bytes)
+            # Update file size (total size - 8)
+            file_size = len(audio_array) - 8
+            audio_array[4:8] = file_size.to_bytes(4, "little")
+            # Update data chunk size (total size - 44)
+            data_size = len(audio_array) - 44
+            audio_array[40:44] = data_size.to_bytes(4, "little")
+            audio_bytes = bytes(audio_array)
+
+        return audio_bytes, None
 
     except Exception as e:
         print(f"Error converting conversation to audio: {e}")
