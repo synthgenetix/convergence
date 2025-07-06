@@ -1,14 +1,29 @@
 # 🚀 Setup Guide
 
-This guide will help you get Convergence up and running on your system.
+```{note}
+This guide will help you get Convergence up and running on your system in just a few minutes!
+```
 
 ## Prerequisites
 
-- Python 3.9+
-- OpenAI API Key
-- Docker (optional, for API deployment)
+```{important}
+Before you begin, ensure you have the following:
+```
+
+- **Python 3.9+** - [Download Python](https://www.python.org/downloads/)
+- **OpenAI API Key** - [Get your API key](https://platform.openai.com/api-keys)
+- **Docker** (optional) - For API deployment
 
 ## Installation
+
+```{admonition} Quick Install
+:class: tip
+
+For the fastest setup, you can use pip:
+```bash
+pip install convergence
+```
+```
 
 ### 1. Clone the Repository
 
@@ -55,6 +70,24 @@ ENVIRONMENT=development           # Optional: local/development/staging/producti
 
 ## Next Steps
 
-- Check out the [SDK Usage Guide](SDK_USAGE.md) for CLI examples.
-- See [API Usage](API_USAGE.md) for REST API integration.
-- Read about [Features](FEATURES.md) to understand all capabilities.
+```{grid} 3
+:gutter: 2
+
+```{grid-item-card} SDK Usage
+:link: SDK_USAGE
+:link-type: doc
+Learn CLI commands and examples
+```
+
+```{grid-item-card} API Usage
+:link: API_USAGE
+:link-type: doc
+Integrate with REST API
+```
+
+```{grid-item-card} Features
+:link: FEATURES  
+:link-type: doc
+Explore all capabilities
+```
+```

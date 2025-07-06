@@ -1,0 +1,150 @@
+/* Custom CSS for Convergence Documentation */
+
+/* Smooth animations */
+* {
+    transition: all 0.2s ease;
+}
+
+/* Enhanced code blocks */
+.highlight {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark .highlight {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Beautiful cards */
+.sd-card {
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sd-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(124, 77, 255, 0.15);
+}
+
+/* Announcement bar styling */
+.announcement {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white !important;
+    font-weight: 500;
+}
+
+.announcement a {
+    color: #ffd700 !important;
+    text-decoration: underline;
+}
+
+/* Enhanced note blocks */
+.admonition.note {
+    border-left: 4px solid #7C4DFF;
+    background-color: rgba(124, 77, 255, 0.05);
+}
+
+.dark .admonition.note {
+    background-color: rgba(156, 136, 255, 0.1);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better typography */
+.content {
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-top: 2em;
+}
+
+/* Code copy button enhancement */
+.copybtn {
+    transition: opacity 0.2s ease;
+    border-radius: 4px;
+}
+
+.copybtn:hover {
+    background-color: rgba(124, 77, 255, 0.1);
+}
+
+/* Sidebar enhancements */
+.sidebar-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #7C4DFF transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+    background-color: #7C4DFF;
+    border-radius: 3px;
+}
+
+/* Enhanced search */
+.sidebar-search-container input {
+    border-radius: 8px;
+    padding: 0.5em 1em;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .sd-card {
+        margin-bottom: 1em;
+    }
+}
+
+/* Philosophy quote styling */
+blockquote {
+    border-left: 4px solid #7C4DFF;
+    padding-left: 1em;
+    font-style: italic;
+    color: #666;
+}
+
+.dark blockquote {
+    color: #aaa;
+}
+
+/* Enhanced tables */
+table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark table {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* API endpoint styling */
+.http {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+}
+
+.http.get { color: #22c55e; }
+.http.post { color: #3b82f6; }
+.http.put { color: #f59e0b; }
+.http.delete { color: #ef4444; }
+
+/* Loading animation for search */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.searching {
+    animation: pulse 1.5s ease-in-out infinite;
+}
