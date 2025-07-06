@@ -39,6 +39,9 @@ source_suffix = {
     '.md': 'markdown',
 }
 
+# Ensure Sphinx can find all files
+source_encoding = 'utf-8'
+
 # MyST Parser configuration for better Markdown support
 myst_enable_extensions = [
     "colon_fence",
@@ -53,8 +56,15 @@ myst_enable_extensions = [
     "tasklist",
 ]
 
+# Configure MyST to handle relative links
+myst_heading_anchors = 3
+myst_substitutions = {}
+
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'requirements.txt']
+
+# Tell Sphinx to look in subdirectories
+master_doc = 'index'
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

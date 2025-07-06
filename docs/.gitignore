@@ -1,0 +1,5 @@
+# Sphinx build artifacts
+_build/
+*.pyc
+__pycache__/
+.DS_Store

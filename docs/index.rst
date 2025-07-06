@@ -162,20 +162,32 @@ Convergence opens up a world of possibilities:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Documentation
+   :caption: Getting Started
    :hidden:
 
    home/SETUP
    home/SDK_USAGE
    home/FEATURES
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Integration
+   :hidden:
+
    home/API_USAGE
    home/SELF_HOST
    home/API_KEY_MANAGEMENT
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Development
+   :hidden:
+
    home/DEV_SETUP
    home/CONTRIBUTIONS
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: API Reference
    :hidden:
 

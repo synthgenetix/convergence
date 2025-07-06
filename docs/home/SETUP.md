@@ -65,6 +65,6 @@ python -m convergence --help
 
 ## Next Steps
 
-- [**SDK Usage**](SDK_USAGE.md) - Learn CLI commands
-- [**API Usage**](API_USAGE.md) - REST API integration
-- [**Features**](FEATURES.md) - Explore capabilities
+- [**SDK Usage**](SDK_USAGE) - Learn CLI commands
+- [**API Usage**](API_USAGE) - REST API integration
+- [**Features**](FEATURES) - Explore capabilities
