@@ -4,12 +4,14 @@
 
 # 🧙🏼‍♂️ CONVERGENCE
 
-**Where minds meet in the digital ether.**
+**Where minds meet in the digital ether**
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+
+_A platform service for generating synthetic audio conversations, born from the joy of programming and the belief that technology should enhance life._
 
 </div>
 
@@ -21,7 +23,7 @@
 
 **Convergence** transforms text prompts into lifelike audio conversations using AI. Born from weekend tinkering sessions and a deep love for programming, it's where technology meets creativity.
 
-### ✨ One Command, Infinite Conversations
+### ✨ One Command, Infinite Conversations.
 
 ```bash
 python -m convergence --prompt "Two friends discussing the meaning of life" --duration 10
@@ -47,25 +49,28 @@ cp .env.example .env
 python -m convergence --prompt "Developers debating tabs vs spaces" --duration 5
 ```
 
-📖 **[Full Setup Guide →](docs/SETUP.md)**
+📖 **[Full Setup Guide →](docs/home/SETUP.md)**
 
 ---
 
 ## 📚 Documentation
 
 ### Getting Started
-- 🚀 **[Setup Guide](docs/SETUP.md)** - Installation and configuration.
-- 🎯 **[SDK Usage](docs/SDK_USAGE.md)** - CLI examples and options.
-- ✨ **[Features](docs/FEATURES.md)** - All capabilities explained.
+
+- 🚀 **[Setup Guide](docs/home/SETUP.md)** - Installation and configuration
+- 🎯 **[SDK Usage](docs/home/SDK_USAGE.md)** - CLI examples and options
+- ✨ **[Features](docs/home/FEATURES.md)** - All capabilities explained
 
 ### Integration
-- 🌐 **[API Usage](docs/API_USAGE.md)** - REST API endpoints.
-- 🏠 **[Self Hosting](docs/SELF_HOST.md)** - Deploy on your infrastructure.
-- 🔐 **[API Key Management](docs/API_KEY_MANAGEMENT.md)** - Authentication setup.
+
+- 🌐 **[API Usage](docs/home/API_USAGE.md)** - REST API endpoints
+- 🏠 **[Self Hosting](docs/home/SELF_HOST.md)** - Deploy on your infrastructure
+- 🔐 **[API Key Management](docs/home/API_KEY_MANAGEMENT.md)** - Authentication setup
 
 ### Development
-- 🧪 **[Development Setup](docs/DEV_SETUP.md)** - Contribute to Convergence.
-- 🤝 **[Contributing](docs/CONTRIBUTIONS.md)** - Join our community.
+
+- 🧪 **[Development Setup](docs/home/DEV_SETUP.md)** - Contribute to Convergence
+- 🤝 **[Contributing](docs/home/CONTRIBUTIONS.md)** - Join our community
 
 ---
 
@@ -92,10 +97,10 @@ This project has been evolving since 2022, transforming from an idea into a plat
 
 ## 🤝 Join the Convergence
 
-- ⭐ **Star** this repo to show support.
-- 🔔 **Watch** for updates.
-- 🍴 **Fork** and build something amazing.
-- 💬 **Share** your creations.
+- ⭐ **Star** this repo to show support
+- 🔔 **Watch** for updates
+- 🍴 **Fork** and build something amazing
+- 💬 **Share** your creations
 
 Interested in early access to our cloud version? Email: contact.adityapatange@gmail.com
 
@@ -105,11 +110,11 @@ Interested in early access to our cloud version? Email: contact.adityapatange@gm
 
 **🚀 Welcome to the Convergence ☀️**
 
-_Where smoke transforms into binary fuel for digital sentients._
+_Where smoke transforms into binary fuel for digital sentients_
 
 _When creativity, mindfulness, technology and consciousness combine in the sentient's experience of life, the sentient becomes deathless._  
 — Laws of Convergence, 8164
 
-**Built with ❤️ during weekend tinkering sessions.**
+**Built with ❤️ during weekend tinkering sessions**
 
 </div>
