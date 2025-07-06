@@ -97,10 +97,10 @@ This project has been evolving since 2022, transforming from an idea into a plat
 
 ## 🤝 Join the Convergence
 
-- ⭐ **Star** this repo to show support
-- 🔔 **Watch** for updates
-- 🍴 **Fork** and build something amazing
-- 💬 **Share** your creations
+- ⭐ **Star** this repo to show support.
+- 🔔 **Watch** for updates.
+- 🍴 **Fork** and build something amazing.
+- 💬 **Share** your creations.
 
 Interested in early access to our cloud version? Email: contact.adityapatange@gmail.com
 
