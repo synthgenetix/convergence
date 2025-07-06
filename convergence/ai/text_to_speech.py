@@ -9,20 +9,18 @@ from convergence.core.models import Conversation
 
 def get_random_female_voice_id() -> str:
     """
-    Get the female voice ID from the OpenAI API.
+    Get a female-presenting voice ID from the OpenAI API.
     """
-    female_voices = ["alloy", "coral", "fable", "nova", "sage"]
-    random_voice = random.choice(female_voices)
-    return random_voice
+    female_voices = ["coral", "fable", "nova", "sage", "shimmer"]
+    return random.choice(female_voices)
 
 
 def get_random_male_voice_id() -> str:
     """
-    Get the male voice ID from the OpenAI API.
+    Get a male-presenting voice ID from the OpenAI API.
     """
-    male_voices = ["ash", "ballad", "echo", "onyx", "shimmer"]
-    random_voice = random.choice(male_voices)
-    return random_voice
+    male_voices = ["alloy", "ash", "ballad", "echo", "onyx"]
+    return random.choice(male_voices)
 
 
 def text_to_audio(
@@ -38,7 +36,6 @@ def text_to_audio(
         Tuple[Optional[bytes], Optional[str]]: (audio_buffer, error_message_if_any)
     """
     try:
-        print(f"Converting message to audio using voice: {voice_id}")
         openai = OpenAI(api_key=openai_api_key)
         audio_buffer = io.BytesIO()
 
@@ -52,7 +49,6 @@ def text_to_audio(
             audio_buffer.write(chunk)
 
         audio_buffer.seek(0)
-        print("Successfully converted message to audio.")
         return audio_buffer.read(), None
     except Exception as e:
         print(f"Error converting message to audio: {e}")
@@ -87,6 +83,7 @@ def conversation_to_audio(
 
             assigned_voice_id = name_to_voice_id[item.name]
 
+            print(f"Converting message to audio for segment {idx} of {len(transcript.items)}.")
             audio_data, error = text_to_audio(
                 item.message,
                 api_key,
@@ -100,6 +97,8 @@ def conversation_to_audio(
                 return None, error
 
             audio_segments.append((idx, audio_data))
+
+        print(f"{len(audio_segments)} audio segments generated.")
 
         # Sort by message index (already in order, but explicit)
         audio_segments.sort(key=lambda x: x[0])
