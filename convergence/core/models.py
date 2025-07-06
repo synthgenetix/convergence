@@ -14,7 +14,7 @@ class ConversationConfig(BaseModel):
 
     prompt: str = Field(default="", description="The conversation topic/prompt")
     duration: int = Field(10, ge=1, le=60, description="Duration in minutes (1-60)")
-    vibe: str = Field("Casual conversation", description="The conversation vibe/style")
+    vibe: str = Field("NA", description="The conversation vibe/style")
     output_path: Optional[Path] = Field(None, description="Output file path")
     openai_api_key: Optional[str] = Field(None, description="OpenAI API key")
     outline: Optional[str] = Field(None, description="Outline content to guide the conversation")
