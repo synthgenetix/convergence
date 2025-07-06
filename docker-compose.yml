@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  convergence-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AUTH_ENABLED=${AUTH_ENABLED:-false}
+      - GOOGLE_CREDENTIALS_PATH=${GOOGLE_CREDENTIALS_PATH:-}
+      - GOOGLE_SHEET_ID=${GOOGLE_SHEET_ID:-}
+      - GOOGLE_SHEET_NAME=${GOOGLE_SHEET_NAME:-API_Keys}
+      - API_KEY_CACHE_DURATION=${API_KEY_CACHE_DURATION:-300}
+    volumes:
+      - ./output:/app/output
+      - ./.env:/app/.env:ro
+      - ./.env.production:/app/.env.production:ro
+      # Mount Google credentials if provided
+      - ${GOOGLE_CREDENTIALS_PATH:-/dev/null}:${GOOGLE_CREDENTIALS_PATH:-/dev/null}:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
