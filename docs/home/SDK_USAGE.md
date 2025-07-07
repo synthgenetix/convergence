@@ -116,6 +116,6 @@ python -m convergence --conversation output/conversation_[timestamp].json
 
 ## Next Steps
 
-- Explore [Features](FEATURES.md) for advanced capabilities.
-- See [API Usage](API_USAGE.md) for programmatic access.
-- Check [Development Setup](DEV_SETUP.md) to contribute.
+- Explore [Features](FEATURES) for advanced capabilities.
+- See [API Usage](API_USAGE) for programmatic access.
+- Check [Development Setup](DEV_SETUP) to contribute.

@@ -272,6 +272,6 @@ DEBUG=true
 
 ## Next Steps
 
-- Configure [API Key Management](API_KEY_MANAGEMENT.md).
+- Configure [API Key Management](API_KEY_MANAGEMENT).
 - Set up monitoring and alerts.
-- Review [Security](../README.md#-security) best practices.
+- Review [Security](../README#-security) best practices.

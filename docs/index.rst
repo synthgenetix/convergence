@@ -28,137 +28,65 @@ Welcome to Convergence
 Getting Started
 ---------------
 
-.. grid:: 1 2 2 3
-   :gutter: 4
-   :class: getting-started-grid
+**Quick Start**
+   Set up Convergence in minutes with our streamlined installation guide.
+   
+   → :doc:`Setup Guide <home/SETUP>`
 
-   .. grid-item-card::
-      :class: minimal-card
-      
-      **Quick Start**
-      ^^^
-      Set up Convergence in minutes with our streamlined installation guide.
-      
-      +++
-      :doc:`Setup Guide <home/SETUP>` →
+**Learn by Example**
+   Master the CLI with practical examples and use cases.
+   
+   → :doc:`SDK Usage <home/SDK_USAGE>`
 
-   .. grid-item-card::
-      :class: minimal-card
-      
-      **Learn by Example**
-      ^^^
-      Master the CLI with practical examples and use cases.
-      
-      +++
-      :doc:`SDK Usage <home/SDK_USAGE>` →
-
-   .. grid-item-card::
-      :class: minimal-card
-      
-      **Explore Features**
-      ^^^
-      Discover all the capabilities Convergence has to offer.
-      
-      +++
-      :doc:`Features <home/FEATURES>` →
+**Explore Features**
+   Discover all the capabilities Convergence has to offer.
+   
+   → :doc:`Features <home/FEATURES>`
 
 Integration & Deployment
 ------------------------
 
-.. grid:: 1 2 2 3
-   :gutter: 4
-   :class: integration-grid
+**REST API**
+   Build applications using our comprehensive API endpoints.
+   
+   → :doc:`API Usage <home/API_USAGE>`
 
-   .. grid-item-card::
-      :class: minimal-card
-      
-      **REST API**
-      ^^^
-      Build applications using our comprehensive API endpoints.
-      
-      +++
-      :doc:`API Usage <home/API_USAGE>` →
+**Self-Host**
+   Deploy Convergence on your own infrastructure.
+   
+   → :doc:`Self Hosting <home/SELF_HOST>`
 
-   .. grid-item-card::
-      :class: minimal-card
-      
-      **Self-Host**
-      ^^^
-      Deploy Convergence on your own infrastructure.
-      
-      +++
-      :doc:`Self Hosting <home/SELF_HOST>` →
-
-   .. grid-item-card::
-      :class: minimal-card
-      
-      **Authentication**
-      ^^^
-      Secure your deployment with API key management.
-      
-      +++
-      :doc:`API Keys <home/API_KEY_MANAGEMENT>` →
+**Authentication**
+   Secure your deployment with API key management.
+   
+   → :doc:`API Keys <home/API_KEY_MANAGEMENT>`
 
 For Developers
 --------------
 
-.. grid:: 1 2 2 2
-   :gutter: 4
-   :class: developer-grid
+**Development Setup**
+   Set up your development environment and start contributing.
+   
+   → :doc:`Dev Setup <home/DEV_SETUP>`
 
-   .. grid-item-card::
-      :class: minimal-card
-      
-      **Development Setup**
-      ^^^
-      Set up your development environment and start contributing.
-      
-      +++
-      :doc:`Dev Setup <home/DEV_SETUP>` →
-
-   .. grid-item-card::
-      :class: minimal-card
-      
-      **Contributing**
-      ^^^
-      Join our community and help shape the future of Convergence.
-      
-      +++
-      :doc:`Contribute <home/CONTRIBUTIONS>` →
+**Contributing**
+   Join our community and help shape the future of Convergence.
+   
+   → :doc:`Contribute <home/CONTRIBUTIONS>`
 
 What Can You Create?
 --------------------
 
 Convergence opens up a world of possibilities:
 
-.. raw:: html
+- **Podcasts** - AI hosts discussing any topic
+- **Education** - Interactive lectures and tutorials
+- **Storytelling** - Multi-character narratives
+- **Practice** - Mock interviews and conversations
+- **Entertainment** - Audio dramas and creative content
+- **Learning** - Language practice dialogues
 
-   <div class="use-cases">
-      <div class="use-case">
-         <h4>Podcasts</h4>
-         <p>AI hosts discussing any topic</p>
-      </div>
-      <div class="use-case">
-         <h4>Education</h4>
-         <p>Interactive lectures and tutorials</p>
-      </div>
-      <div class="use-case">
-         <h4>Storytelling</h4>
-         <p>Multi-character narratives</p>
-      </div>
-      <div class="use-case">
-         <h4>Practice</h4>
-         <p>Mock interviews and conversations</p>
-      </div>
-      <div class="use-case">
-         <h4>Entertainment</h4>
-         <p>Audio dramas and creative content</p>
-      </div>
-      <div class="use-case">
-         <h4>Learning</h4>
-         <p>Language practice dialogues</p>
-      </div>
-   </div>
+The only limit is your imagination.
 
 .. toctree::
    :maxdepth: 2

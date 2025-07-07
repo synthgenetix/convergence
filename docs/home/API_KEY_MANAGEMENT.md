@@ -216,6 +216,6 @@ These endpoints work without authentication:
 
 ## Next Steps
 
-- Review [Security Best Practices](SELF_HOST.md#security-considerations).
+- Review [Security Best Practices](SELF_HOST#security-considerations).
 - Set up monitoring for API usage.
 - Configure rate limits based on needs.

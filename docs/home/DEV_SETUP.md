@@ -155,6 +155,6 @@ convergence/
 
 ## Next Steps
 
-- Read [Contributing](CONTRIBUTIONS.md) guidelines.
-- Explore the [API documentation](API_USAGE.md).
-- Check out [Features](FEATURES.md) for capabilities.
+- Read [Contributing](CONTRIBUTIONS) guidelines.
+- Explore the [API documentation](API_USAGE).
+- Check out [Features](FEATURES) for capabilities.

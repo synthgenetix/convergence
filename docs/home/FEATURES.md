@@ -102,6 +102,6 @@ Clean, intuitive command-line experience:
 
 ## Next Steps
 
-- Try out examples in [SDK Usage](SDK_USAGE.md).
-- Set up the API with [API Usage](API_USAGE.md).
-- Learn about [Self Hosting](SELF_HOST.md) options.
+- Try out examples in [SDK Usage](SDK_USAGE).
+- Set up the API with [API Usage](API_USAGE).
+- Learn about [Self Hosting](SELF_HOST) options.

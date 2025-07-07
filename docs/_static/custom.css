@@ -129,31 +129,58 @@ h1, h2, h3, h4, h5, h6 {
     margin: 2rem 0;
 }
 
-/* Use cases */
-.use-cases {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
+/* Section styling for index page */
+.section dl {
+    margin: 0;
 }
 
-.use-case {
-    text-align: center;
-    padding: 1.5rem;
-    border-radius: 8px;
-    background: var(--color-background-secondary);
-}
-
-.use-case h4 {
-    margin: 0 0 0.5rem;
+.section dt {
+    font-weight: 500;
     font-size: 1rem;
+    margin: 1.5rem 0 0.5rem;
+    color: var(--color-foreground-primary);
+}
+
+.section dd {
+    margin: 0 0 0 1.5rem;
+    color: var(--color-foreground-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.section dd p {
+    margin: 0.25rem 0;
+}
+
+/* Style the arrow links */
+.section dd p:last-child {
+    margin-top: 0.5rem;
+}
+
+.section a {
+    color: var(--color-brand-content);
     font-weight: 500;
 }
 
-.use-case p {
-    margin: 0;
-    font-size: 0.875rem;
-    color: var(--color-foreground-secondary);
+/* List styling for use cases */
+.section > ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.section > ul li {
+    padding: 1rem;
+    background: var(--color-background-secondary);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.section > ul li strong {
+    color: var(--color-foreground-primary);
 }
 
 /* Clean up sidebar */

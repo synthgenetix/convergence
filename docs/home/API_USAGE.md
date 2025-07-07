@@ -93,6 +93,6 @@ The API returns a JSON response with:
 
 ## Next Steps
 
-- Learn about [API Key Management](API_KEY_MANAGEMENT.md) for securing your API.
-- See [Self Hosting](SELF_HOST.md) for deployment options.
-- Check the [SDK Usage](SDK_USAGE.md) for client integration examples.
+- Learn about [API Key Management](API_KEY_MANAGEMENT) for securing your API.
+- See [Self Hosting](SELF_HOST) for deployment options.
+- Check the [SDK Usage](SDK_USAGE) for client integration examples.
