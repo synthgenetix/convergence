@@ -1,4 +1,4 @@
-# 🔥 API Key Management
+# API Key Management
 
 This guide explains how to set up and manage API key authentication for Convergence.
 Secure your API endpoints with a robust authentication system backed by Google Sheets for easy management.
@@ -19,7 +19,7 @@ This cloud-based approach provides flexibility and ease of management. The syste
 
 ## Setup
 
-### 🔥 1. Create Google Sheet
+### 1. Create Google Sheet
 
 Create a Google Sheet with the following columns:
 
@@ -42,7 +42,7 @@ is_active: TRUE
 rate_limit: 60
 ```
 
-### 🔥 2. Google Cloud Setup
+### 2. Google Cloud Setup
 
 1. **Create Service Account**
    - Go to Google Cloud Console.
@@ -58,7 +58,7 @@ rate_limit: 60
    
    The service account needs editor access to read API keys and update usage statistics.
 
-### 🔥 3. Environment Configuration
+### 3. Environment Configuration
 
 ```bash
 # Enable API key authentication
@@ -75,7 +75,7 @@ API_KEY_CACHE_DURATION=300  # Cache duration in seconds (default: 300)
 
 ## Using API Keys
 
-### 🔥 Authentication Headers
+### Authentication Headers
 
 The API accepts two header formats:
 
@@ -87,7 +87,7 @@ Authorization: Bearer sk-convergence-abc123xyz
 Authorization: ApiKey sk-convergence-abc123xyz
 ```
 
-### 🔥 Example Request
+### Example Request
 
 ```bash
 curl -X POST http://localhost:8000/convergence/generate-audio \
@@ -101,7 +101,7 @@ curl -X POST http://localhost:8000/convergence/generate-audio \
 
 ## Security Features
 
-### 🔥 Automatic Expiration
+### Automatic Expiration
 
 - Keys are checked for expiration on each request.
   The system validates expiration dates in real-time for maximum security.
@@ -110,7 +110,7 @@ curl -X POST http://localhost:8000/convergence/generate-audio \
 - No manual cleanup required.
   Expired keys remain in the sheet for audit purposes but are inactive.
 
-### 🔥 Rate Limiting
+### Rate Limiting
 
 - Per-client rate limits based on `rate_limit` column.
   Each client can have custom limits based on their subscription tier.
@@ -119,7 +119,7 @@ curl -X POST http://localhost:8000/convergence/generate-audio \
 - Limits reset every minute.
   The sliding window approach ensures fair usage distribution.
 
-### 🔥 Client Identification
+### Client Identification
 
 - Response headers include `X-Client-Name`.
   Every response identifies which client made the request.
@@ -128,7 +128,7 @@ curl -X POST http://localhost:8000/convergence/generate-audio \
 - Helps track usage per client.
   Build usage reports and billing systems on top of this data.
 
-### 🔥 Caching
+### Caching
 
 - API keys are cached for performance.
   Reduces Google Sheets API calls for better response times.
@@ -155,7 +155,7 @@ The fallback behavior prioritizes availability while maintaining security awaren
 
 ## Managing Keys
 
-### 🔥 Adding a New Key
+### Adding a New Key
 
 1. Open your Google Sheet.
 2. Add a new row with:
@@ -167,7 +167,7 @@ The fallback behavior prioritizes availability while maintaining security awaren
 New keys become active immediately after the cache expires.
 No server restart or deployment needed for key management.
 
-### 🔥 Revoking a Key
+### Revoking a Key
 
 1. Find the key in your Google Sheet.
 2. Set `is_active` to FALSE.
@@ -176,7 +176,7 @@ No server restart or deployment needed for key management.
 Revoked keys are preserved for audit trails.
 Consider adding a `revoked_at` timestamp for tracking.
 
-### 🔥 Setting Expiration
+### Setting Expiration
 
 1. Set `expires_at` to desired date/time.
 2. Key will stop working after this time.
@@ -187,7 +187,7 @@ Automatic expiration reduces the risk of forgotten keys.
 
 ## Best Practices
 
-### 🔥 Key Format
+### Key Format
 
 Use consistent format for keys:
 ```
@@ -199,7 +199,7 @@ Example:
 sk-convergence-550e8400-e29b-41d4-a716-446655440000
 ```
 
-### 🔥 Security Tips
+### Security Tips
 
 1. **Rotate Keys Regularly**: Set expiration dates.
    Regular rotation limits the impact of compromised keys.
@@ -212,7 +212,7 @@ sk-convergence-550e8400-e29b-41d4-a716-446655440000
 5. **Secure Storage**: Store keys in environment variables.
    Never commit API keys to version control systems.
 
-### 🔥 Rate Limit Guidelines
+### Rate Limit Guidelines
 
 - Development: 60 requests/minute.
   Sufficient for testing and development workflows.
@@ -223,7 +223,7 @@ sk-convergence-550e8400-e29b-41d4-a716-446655440000
 
 ## Troubleshooting
 
-### 🔥 Common Issues
+### Common Issues
 
 1. **"Authentication required" error**
    - Check AUTH_ENABLED setting.
@@ -240,7 +240,7 @@ sk-convergence-550e8400-e29b-41d4-a716-446655440000
    - Wait for limit to reset (1 minute).
    - Consider requesting higher limit.
 
-### 🔥 Debug Mode
+### Debug Mode
 
 Enable debug logging to troubleshoot:
 ```bash

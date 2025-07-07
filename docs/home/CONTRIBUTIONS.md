@@ -1,12 +1,12 @@
-# 🔥 Contributing to Convergence
+# Contributing to Convergence
 
 Convergence is a community project, built by developers for developers.
 We believe in the power of open source to bring people together and create amazing things.
 Your contributions, whether code, documentation, or ideas, help shape the future of synthetic audio generation.
 
-## 🔥 How to Contribute
+## How to Contribute
 
-### 🔥 1. Fork the Repository
+### 1. Fork the Repository
 
 ```bash
 # Fork on GitHub, then clone your fork
@@ -17,7 +17,7 @@ cd convergence
 git remote add upstream https://github.com/prodigaltech/convergence.git
 ```
 
-### 🔥 2. Create Your Feature Branch
+### 2. Create Your Feature Branch
 
 ```bash
 # Update your fork
@@ -29,7 +29,7 @@ git merge upstream/main
 git checkout -b feature/amazing-feature
 ```
 
-### 🔥 3. Make Your Changes
+### 3. Make Your Changes
 
 - Write clean, readable code that follows established patterns and conventions.
   Focus on clarity and maintainability, making your code easy for others to understand and modify.
@@ -40,7 +40,7 @@ git checkout -b feature/amazing-feature
 - Follow existing code style to maintain consistency across the codebase.
   Use the provided linting tools and pre-commit hooks to ensure your code meets project standards.
 
-### 🔥 4. Commit Your Changes
+### 4. Commit Your Changes
 
 Use conventional commit messages:
 
@@ -67,7 +67,7 @@ Types:
 - `chore`: Maintenance tasks like dependency updates and build improvements.
   These are necessary housekeeping activities that keep the project running smoothly.
 
-### 🔥 5. Push and Create PR
+### 5. Push and Create PR
 
 ```bash
 git push origin feature/amazing-feature
@@ -76,9 +76,9 @@ git push origin feature/amazing-feature
 Then open a Pull Request on GitHub.
 Provide a clear description of your changes and reference any related issues.
 
-## 🔥 Ideas for Contribution
+## Ideas for Contribution
 
-### 🔥 Features
+### Features
 
 - **Web UI**: Build a React/Vue/Svelte interface for Convergence that provides an intuitive user experience.
   Create a modern, responsive web application that makes audio generation accessible to non-technical users.
@@ -91,7 +91,7 @@ Provide a clear description of your changes and reference any related issues.
 - **Conversation Templates**: Pre-built scenario templates for common use cases.
   Create a library of ready-to-use conversation structures for podcasts, interviews, and educational content.
 
-### 🔥 Improvements
+### Improvements
 
 - **Performance**: Optimize generation speed to reduce processing time and improve user experience.
   Profile the codebase, identify bottlenecks, and implement caching strategies for faster audio delivery.
@@ -104,7 +104,7 @@ Provide a clear description of your changes and reference any related issues.
 - **Accessibility**: Make tools more accessible to users with disabilities and diverse needs.
   Implement screen reader support, keyboard navigation, and other accessibility features throughout the application.
 
-### 🔥 Testing & Quality
+### Testing & Quality
 
 - **Test Coverage**: Increase coverage to 90%+ to ensure code reliability and stability.
   Write comprehensive tests for edge cases, error conditions, and integration scenarios.
@@ -115,7 +115,7 @@ Provide a clear description of your changes and reference any related issues.
 - **Documentation**: Improve code documentation with clear examples and explanations.
   Add comprehensive docstrings, type hints, and inline comments that help developers understand the codebase.
 
-### 🔥 Community
+### Community
 
 - **Examples**: Create example conversations that showcase Convergence's capabilities.
   Build a diverse collection of sample outputs demonstrating different vibes, durations, and use cases.
@@ -128,9 +128,9 @@ Provide a clear description of your changes and reference any related issues.
 - **Feature Requests**: Suggest new features that enhance Convergence's capabilities.
   Share your ideas for improvements and participate in discussions about the project's future direction.
 
-## 🔥 Development Guidelines
+## Development Guidelines
 
-### 🔥 Code Style
+### Code Style
 
 ```python
 # Good: Clear, descriptive names
@@ -143,7 +143,7 @@ def gen_conv(p, d):
     pass
 ```
 
-### 🔥 Testing
+### Testing
 
 ```python
 # Write comprehensive tests
@@ -155,7 +155,7 @@ def test_conversation_generation():
     assert all(item['message'] for item in result['items'])
 ```
 
-### 🔥 Documentation
+### Documentation
 
 - Add docstrings to all functions following the Google style guide.
   Include parameter descriptions, return values, and usage examples in your documentation.
@@ -166,7 +166,7 @@ def test_conversation_generation():
 - Keep documentation up-to-date as the codebase evolves and features change.
   Review and update docs regularly to prevent confusion and support issues.
 
-## 🔥 Pull Request Process
+## Pull Request Process
 
 1. **Ensure Quality**
    - All tests pass successfully without failures or warnings.
@@ -199,9 +199,9 @@ def test_conversation_generation():
      Resolve any conflicts and verify that your changes work with the latest code.
    - Celebrate your contribution! 🎉
 
-## 🔥 Community Guidelines
+## Community Guidelines
 
-### 🔥 Be Respectful
+### Be Respectful
 - Welcome newcomers with patience and encouragement.
   Help first-time contributors feel valued and guide them through the process.
 - Provide constructive feedback that helps contributors improve their code.
@@ -209,7 +209,7 @@ def test_conversation_generation():
 - Respect different perspectives and approaches to problem-solving.
   Recognize that diverse viewpoints lead to better solutions and stronger communities.
 
-### 🔥 Be Helpful
+### Be Helpful
 - Answer questions from other contributors and users thoughtfully.
   Share your knowledge generously and help others overcome challenges.
 - Share knowledge through documentation, blog posts, and discussions.
@@ -217,7 +217,7 @@ def test_conversation_generation():
 - Mentor new contributors by providing guidance and code reviews.
   Help others grow their skills while strengthening the Convergence community.
 
-### 🔥 Be Inclusive
+### Be Inclusive
 - Use inclusive language that welcomes contributors from all backgrounds.
   Choose words carefully to create an environment where everyone feels respected.
 - Consider accessibility in all contributions to support diverse users.
@@ -225,7 +225,7 @@ def test_conversation_generation():
 - Welcome diverse contributions that reflect our global community.
   Value different types of contributions, from code to documentation to community support.
 
-## 🔥 Recognition
+## Recognition
 
 All contributors will be:
 - Listed in CONTRIBUTORS.md as a permanent record of your contribution.
@@ -235,7 +235,7 @@ All contributors will be:
 - Part of the Convergence community with access to exclusive discussions.
   Join a group of passionate developers building the future of audio generation.
 
-## 🔥 Getting Help
+## Getting Help
 
 - **Discord**: Join our community chat for real-time discussions and support.
   Connect with other contributors, share ideas, and get help with your contributions.
@@ -244,7 +244,7 @@ All contributors will be:
 - **Email**: contact.adityapatange@gmail.com for direct communication.
   Reach out for partnership opportunities, security concerns, or private discussions.
 
-## 🔥 Remember
+## Remember
 
 > "The best features come from weekend tinkering sessions!"
 

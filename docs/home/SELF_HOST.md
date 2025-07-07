@@ -1,13 +1,13 @@
-# 🔥 Self-Hosting Guide
+# Self-Hosting Guide
 
 This guide covers deploying Convergence in your own infrastructure.
 Whether you're running a small personal instance or a large-scale deployment, we've got you covered.
 
-## 🔥 Deployment Options
+## Deployment Options
 
-### 🔥 1. Docker Deployment (Recommended)
+### 1. Docker Deployment (Recommended)
 
-#### 🔥 Using Docker Compose
+#### Using Docker Compose
 
 ```bash
 # Clone the repository
@@ -22,7 +22,7 @@ cp .env.example .env
 docker-compose up -d
 ```
 
-#### 🔥 Using Docker Directly
+#### Using Docker Directly
 
 ```bash
 # Build the image
@@ -36,9 +36,9 @@ docker run -d \
   convergence:latest
 ```
 
-### 🔥 2. Bare Metal Deployment
+### 2. Bare Metal Deployment
 
-#### 🔥 System Requirements
+#### System Requirements
 
 - Ubuntu 20.04+ or similar Linux distribution.
   Other Linux distributions work but Ubuntu is best tested.
@@ -49,7 +49,7 @@ docker run -d \
 - 10GB disk space.
   Includes space for generated audio files and logs.
 
-#### 🔥 Installation Steps
+#### Installation Steps
 
 ```bash
 # Install system dependencies
@@ -72,7 +72,7 @@ cp .env.example .env
 # Edit .env with your settings
 ```
 
-#### 🔥 Running as a Service
+#### Running as a Service
 
 Create `/etc/systemd/system/convergence.service`:
 
@@ -99,9 +99,9 @@ sudo systemctl enable convergence
 sudo systemctl start convergence
 ```
 
-### 🔥 3. Kubernetes Deployment
+### 3. Kubernetes Deployment
 
-#### 🔥 Basic Deployment
+#### Basic Deployment
 
 ```yaml
 apiVersion: apps/v1
@@ -131,9 +131,9 @@ spec:
               key: openai-api-key
 ```
 
-## 🔥 Configuration
+## Configuration
 
-### 🔥 Environment Variables
+### Environment Variables
 
 Essential variables for self-hosting:
 
@@ -151,7 +151,7 @@ API_HOST=0.0.0.0
 API_PORT=8000
 ```
 
-### 🔥 Security Considerations
+### Security Considerations
 
 1. **Use HTTPS**: Deploy behind a reverse proxy (Nginx/Caddy).
    SSL/TLS encryption is essential for protecting API keys in transit.
@@ -162,7 +162,7 @@ API_PORT=8000
 4. **Updates**: Keep dependencies updated.
    Regular updates patch security vulnerabilities and improve performance.
 
-### 🔥 Reverse Proxy Setup (Nginx)
+### Reverse Proxy Setup (Nginx)
 
 ```nginx
 server {
@@ -183,9 +183,9 @@ server {
 }
 ```
 
-## 🔥 Monitoring
+## Monitoring
 
-### 🔥 Health Checks
+### Health Checks
 
 ```bash
 # API health endpoint
@@ -195,7 +195,7 @@ curl http://localhost:8000/health
 curl http://localhost:8000/auth/status
 ```
 
-### 🔥 Logging
+### Logging
 
 Logs are written to:
 - Console (stdout/stderr).
@@ -203,7 +203,7 @@ Logs are written to:
 - Optional file logging via LOG_FILE environment variable.
   Enable file logging for persistent log storage and analysis.
 
-### 🔥 Metrics
+### Metrics
 
 Consider adding:
 - Prometheus metrics endpoint.
@@ -213,9 +213,9 @@ Consider adding:
 - Error tracking (Sentry).
   Catch and fix errors before users report them.
 
-## 🔥 Scaling
+## Scaling
 
-### 🔥 Horizontal Scaling
+### Horizontal Scaling
 
 - Deploy multiple API instances.
   Scale out to handle increased load across multiple servers.
@@ -224,7 +224,7 @@ Consider adding:
 - Share nothing architecture.
   Each instance is independent for maximum reliability.
 
-### 🔥 Performance Tuning
+### Performance Tuning
 
 ```bash
 # Increase workers for high load
@@ -238,9 +238,9 @@ ENABLE_CACHE=true
 CACHE_TTL=3600
 ```
 
-## 🔥 Backup and Recovery
+## Backup and Recovery
 
-### 🔥 Data to Backup
+### Data to Backup
 
 - Environment configuration.
   Your .env files contain critical settings that must be preserved.
@@ -249,7 +249,7 @@ CACHE_TTL=3600
 - API keys database (if using authentication).
   The Google Sheet or database containing your API keys.
 
-### 🔥 Backup Strategy
+### Backup Strategy
 
 ```bash
 # Daily backup script
@@ -264,9 +264,9 @@ cp /opt/convergence/.env $BACKUP_DIR/env-$DATE
 tar -czf $BACKUP_DIR/audio-$DATE.tar.gz /opt/convergence/output/
 ```
 
-## 🔥 Troubleshooting
+## Troubleshooting
 
-### 🔥 Common Issues
+### Common Issues
 
 1. **Port Already in Use**
    ```bash
@@ -287,7 +287,7 @@ tar -czf $BACKUP_DIR/audio-$DATE.tar.gz /opt/convergence/output/
    - Check API key permissions.
      Ensure your OpenAI key has the necessary permissions.
 
-### 🔥 Debug Mode
+### Debug Mode
 
 ```bash
 # Enable debug logging
@@ -295,7 +295,7 @@ LOG_LEVEL=debug
 DEBUG=true
 ```
 
-## 🔥 Next Steps
+## Next Steps
 
 - Configure [API Key Management](API_KEY_MANAGEMENT).
   Secure your API endpoints with robust authentication.

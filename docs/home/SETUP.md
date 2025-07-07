@@ -1,9 +1,9 @@
-# 🔥 Setup Guide
+# Setup Guide
 
 Get Convergence running in minutes with this comprehensive setup guide.
 Whether you're using pip or setting up for development, we'll guide you through every step of the installation process.
 
-## 🔥 Prerequisites
+## Prerequisites
 
 - **Python 3.9+** ([Download](https://www.python.org/downloads/)).
   Python is the foundation of Convergence, and version 3.9 or higher ensures compatibility with all modern features.
@@ -12,7 +12,7 @@ Whether you're using pip or setting up for development, we'll guide you through 
 - **Docker** (optional, for API deployment).
   Docker simplifies deployment and ensures consistency across different environments.
 
-## 🔥 Quick Install
+## Quick Install
 
 ```bash
 pip install convergence
@@ -21,16 +21,16 @@ pip install convergence
 This single command installs Convergence and all its dependencies.
 The package is regularly updated on PyPI with the latest features and improvements.
 
-## 🔥 Development Setup
+## Development Setup
 
-### 🔥 1. Clone Repository
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/prodigaltech/convergence.git
 cd convergence
 ```
 
-### 🔥 2. Setup CLI
+### 2. Setup CLI
 
 ```bash
 chmod a+x setup_cli.sh
@@ -38,7 +38,7 @@ chmod a+x setup_cli.sh
 run setup
 ```
 
-### 🔥 3. Configure Environment
+### 3. Configure Environment
 
 ```bash
 cp .env.example .env
@@ -52,7 +52,7 @@ OPENAI_API_KEY=your-api-key-here
 This key enables Convergence to communicate with OpenAI's language models.
 Keep this key secure and never commit it to version control.
 
-## 🔥 Environment Variables
+## Environment Variables
 
 Convergence uses hierarchical environment loading for flexible configuration management.
 This system allows you to maintain different settings for development, staging, and production environments.
@@ -64,14 +64,14 @@ This system allows you to maintain different settings for development, staging, 
 3. `.env.local` (local overrides) - Personal settings that should never be committed to version control.
    Perfect for developer-specific configurations and temporary testing values.
 
-### 🔥 Essential Variables
+### Essential Variables
 
 ```bash
 OPENAI_API_KEY=your-api-key-here  # Required for AI model access.
 ENVIRONMENT=development           # Optional, defaults to 'development'.
 ```
 
-## 🔥 Verify Installation
+## Verify Installation
 
 ```bash
 python -m convergence --help
@@ -80,7 +80,7 @@ python -m convergence --help
 This command displays all available options and confirms that Convergence is properly installed.
 You should see a comprehensive help menu with all CLI commands and parameters.
 
-## 🔥 Next Steps
+## Next Steps
 
 - [**SDK Usage**](SDK_USAGE) - Learn CLI commands and explore all available options.
   Master the command-line interface to generate conversations with custom parameters.

@@ -1,15 +1,15 @@
-# 🔥 Features
+# Features
 
 Convergence offers a rich set of features for generating synthetic audio conversations.
 From neural synthesis to self-hosted deployments, this platform provides everything you need for creating lifelike dialogues.
 
 ## Core Features
 
-### 🔥 Neural Synthesis
+### Neural Synthesis
 Generate natural conversations on any topic with just one CLI command.
 The AI understands context and creates realistic dialogue flows that capture the nuances of human conversation.
 
-### 🔥 Dynamic Personas
+### Dynamic Personas
 AI-driven personalities with distinct voices. Configure personalities through:
 - **Prompt**: Define the scenario and participants.
   Create detailed character descriptions and scenario setups for more engaging conversations.
@@ -20,7 +20,7 @@ AI-driven personalities with distinct voices. Configure personalities through:
 - **Outline**: Provide structured guidance.
   Guide the AI with bullet points or structured notes to ensure key topics are covered.
 
-### 🔥 Outline Support
+### Outline Support
 Guide conversations with structured content:
 - Support for local files and URLs.
   Load outlines from your filesystem or directly from web resources.
@@ -33,7 +33,7 @@ Guide conversations with structured content:
 - Graceful fallback if processing fails.
   The system continues generating conversations even if outline processing encounters issues.
 
-### 🔥 Pre-defined Conversations
+### Pre-defined Conversations
 Generate audio from JSON conversation transcripts:
 - Create your own transcripts manually.
   Write exact dialogues in JSON format for precise control over conversations.
@@ -44,14 +44,14 @@ Generate audio from JSON conversation transcripts:
 - Environment variable substitution in configs.
   Use environment variables in your configurations for flexible deployments.
 
-### 🔥 AI Transcript Generation
+### AI Transcript Generation
 Create realistic dialogues using GPT-4.1:
 - Smart dialogue generation with context awareness.
 - Configurable parameters (prompt, duration, vibe).
 - JSON output in standard conversation format.
 - No sensitive data in generated files.
 
-### 🔥 Real TTS Integration
+### Real TTS Integration
 OpenAI text-to-speech with automatic voice selection:
 - Supports all OpenAI voices.
   Access the full range of OpenAI's text-to-speech voice options.
@@ -63,7 +63,7 @@ OpenAI text-to-speech with automatic voice selection:
 - Consistent voice throughout conversation.
   Each speaker maintains the same voice throughout the entire dialogue.
 
-### 🔥 Seamless Flow
+### Seamless Flow
 Natural conversation progression:
 - No abrupt shifts or endings.
   Conversations flow naturally from beginning to end without jarring transitions.
@@ -74,7 +74,7 @@ Natural conversation progression:
 - Multi-speaker support.
   Generate conversations with two or more participants seamlessly.
 
-### 🔥 Self-hosted, API First
+### Self-hosted, API First
 RESTful API with Docker support:
 - Build your own UI.
   The RESTful API allows you to create custom interfaces for your specific needs.
@@ -85,9 +85,9 @@ RESTful API with Docker support:
 - Docker deployment ready.
   Container-based deployment ensures consistency across environments.
 
-### 🔥 Developer-Friendly CLI
+### Developer-Friendly CLI
 Clean, intuitive command-line experience:
-- **DevEx is a priority** 🔥.
+- **DevEx is a priority**.
   Every aspect of the CLI is designed with developer experience in mind.
 - Rich help documentation.
   Comprehensive help text guides you through every command and option.
@@ -98,7 +98,7 @@ Clean, intuitive command-line experience:
 
 ## Advanced Features
 
-### 🔥 Environment Management
+### Environment Management
 - Hierarchical configuration loading.
   Configuration files cascade from general to specific for maximum flexibility.
 - Support for multiple environments.
@@ -108,7 +108,7 @@ Clean, intuitive command-line experience:
 - Secure credential handling.
   Sensitive data is kept secure and never exposed in logs or error messages.
 
-### 🔥 Format Support
+### Format Support
 - Automatic file format conversion.
   The system handles various document formats seamlessly without manual conversion.
 - URL content fetching.
@@ -118,7 +118,7 @@ Clean, intuitive command-line experience:
 - Bullet point standardization.
   Lists and outlines are normalized for consistent processing.
 
-### 🔥 Audio Generation
+### Audio Generation
 - High-quality WAV output.
   Audio files are generated in uncompressed WAV format for maximum quality.
 - Configurable duration.
@@ -128,7 +128,7 @@ Clean, intuitive command-line experience:
 - Realistic conversation flow.
   Conversations progress naturally with appropriate turn-taking and responses.
 
-### 🔥 Security Features
+### Security Features
 - No hardcoded secrets.
   All sensitive data is managed through environment variables and secure storage.
 - Input validation.

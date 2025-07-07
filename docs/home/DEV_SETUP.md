@@ -1,11 +1,11 @@
-# 🔥 Development Setup
+# Development Setup
 
 This guide helps you set up Convergence for development and contribution.
 Follow these steps to create a robust development environment that enables you to build new features, fix bugs, and contribute to the project effectively.
 
-## 🔥 Development Environment
+## Development Environment
 
-### 🔥 Prerequisites
+### Prerequisites
 
 - Python 3.9+ for modern language features and type hints.
   Install from python.org or use pyenv for version management.
@@ -16,7 +16,7 @@ Follow these steps to create a robust development environment that enables you t
 - OpenAI API Key for accessing GPT and text-to-speech services.
   Sign up at platform.openai.com to get your API key for development.
 
-### 🔥 Setup Development Environment
+### Setup Development Environment
 
 1. **Clone and Fork**
    ```bash
@@ -40,9 +40,9 @@ Follow these steps to create a robust development environment that enables you t
    pre-commit install
    ```
 
-## 🔥 Code Quality Tools
+## Code Quality Tools
 
-### 🔥 Linting
+### Linting
 
 ```bash
 # Run linter
@@ -52,19 +52,19 @@ Follow these steps to create a robust development environment that enables you t
 ./scripts/lint.sh --fix
 ```
 
-### 🔥 Type Checking
+### Type Checking
 
 ```bash
 ./scripts/typecheck.sh
 ```
 
-### 🔥 Security Scanning
+### Security Scanning
 
 ```bash
 ./scripts/bandit.sh
 ```
 
-### 🔥 Running Tests
+### Running Tests
 
 ```bash
 # Run all tests with coverage
@@ -74,21 +74,21 @@ Follow these steps to create a robust development environment that enables you t
 pytest tests/test_generator.py -v
 ```
 
-## 🔥 Building
+## Building
 
-### 🔥 Build Distribution
+### Build Distribution
 
 ```bash
 ./scripts/build.sh
 ```
 
-### 🔥 Build Docker Image
+### Build Docker Image
 
 ```bash
 docker build -t convergence:latest .
 ```
 
-## 🔥 Project Structure
+## Project Structure
 
 ```
 convergence/
@@ -107,7 +107,7 @@ convergence/
 └── __main__.py         # 🚀 CLI entry point
 ```
 
-## 🔥 Design Principles
+## Design Principles
 
 - **SOLID**: Clean architecture with separation of concerns for maintainable code.
   Each component has a single responsibility, making the codebase easier to understand and modify.
@@ -118,9 +118,9 @@ convergence/
 - **Type-Safe**: Full type hints with mypy validation for catching errors early.
   Comprehensive type annotations throughout the codebase prevent runtime type errors.
 
-## 🔥 Contributing Guidelines
+## Contributing Guidelines
 
-### 🔥 Code Style
+### Code Style
 
 - Follow PEP 8 for consistent Python code style.
   Use the provided linting tools to automatically check and fix style issues.
@@ -131,7 +131,7 @@ convergence/
 - Keep functions small and focused on a single task.
   Functions should be easy to understand, test, and maintain.
 
-### 🔥 Testing
+### Testing
 
 - Write tests for new features before or alongside implementation.
   This ensures your code works correctly and prevents future regressions.
@@ -142,7 +142,7 @@ convergence/
 - Mock external API calls to ensure tests run quickly and reliably.
   Use pytest-mock or unittest.mock to isolate your tests from external dependencies.
 
-### 🔥 Commits
+### Commits
 
 - Use conventional commit messages for clear project history.
   Follow the format: type(scope): description for consistency.
@@ -151,7 +151,7 @@ convergence/
 - Reference issues in commits using #issue-number syntax.
   This links commits to discussions and provides context for changes.
 
-### 🔥 Pull Requests
+### Pull Requests
 
 1. Fork the repository to create your own copy for development.
    This allows you to experiment freely without affecting the main project.
@@ -164,7 +164,7 @@ convergence/
 5. Submit PR with description explaining your changes and motivation.
    Include screenshots for UI changes and reference any related issues.
 
-## 🔥 Development Tips
+## Development Tips
 
 1. **Environment Variables**: Use `.env.local` for local overrides that won't be committed.
    This keeps your personal settings separate from the shared configuration.
@@ -175,7 +175,7 @@ convergence/
 4. **Logging**: Check logs in `logs/` directory for debugging information.
    Logs are organized by date and include detailed error traces when issues occur.
 
-## 🔥 Troubleshooting
+## Troubleshooting
 
 - **Import Errors**: Ensure you're in the virtual environment before running code.
   Activate the venv with `source venv/bin/activate` or use the correct Python interpreter.
@@ -186,7 +186,7 @@ convergence/
 - **Test Failures**: Check if you need to update mocks for API changes.
   External API responses may have changed, requiring mock updates.
 
-## 🔥 Next Steps
+## Next Steps
 
 - Read [Contributing](CONTRIBUTIONS) guidelines for detailed contribution process.
   Learn about our code of conduct, commit conventions, and review process.

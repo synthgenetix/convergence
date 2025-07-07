@@ -1,11 +1,11 @@
-# 🔥 SDK Usage Guide
+# SDK Usage Guide
 
 This guide covers using the Convergence CLI for generating audio conversations.
 Master the command-line interface to unlock the full potential of synthetic conversation generation.
 
-## 🔥 Basic Usage
+## Basic Usage
 
-### 🔥 Generate a Conversation
+### Generate a Conversation
 
 ```bash
 python -m convergence --prompt "Two friends discussing quantum computing" \
@@ -14,7 +14,7 @@ python -m convergence --prompt "Two friends discussing quantum computing" \
                      --output output/quantum_talk.wav
 ```
 
-### 🔥 With Custom Environment File
+### With Custom Environment File
 
 ```bash
 python -m convergence --prompt "AI consciousness debate" \
@@ -23,9 +23,9 @@ python -m convergence --prompt "AI consciousness debate" \
                      --vibe "Philosophical and deep"
 ```
 
-## 🔥 Using Outlines
+## Using Outlines
 
-### 🔥 Local File Outline
+### Local File Outline
 
 ```bash
 python -m convergence --prompt "Technical deep dive on AI" \
@@ -34,7 +34,7 @@ python -m convergence --prompt "Technical deep dive on AI" \
                      --vibe "Educational and structured"
 ```
 
-### 🔥 URL Outline
+### URL Outline
 
 ```bash
 python -m convergence --prompt "Product review discussion" \
@@ -42,7 +42,7 @@ python -m convergence --prompt "Product review discussion" \
                      --duration 15
 ```
 
-### 🔥 Non-Markdown Files
+### Non-Markdown Files
 
 Non-markdown files are automatically converted.
 Convergence intelligently processes PDFs, text files, and other formats using the markitdown library:
@@ -52,24 +52,24 @@ python -m convergence --prompt "Technical documentation" \
                      --outline ./docs/spec.pdf
 ```
 
-## 🔥 Pre-defined Conversations
+## Pre-defined Conversations
 
-### 🔥 Using Conversation JSON
+### Using Conversation JSON
 
 ```bash
 python -m convergence --conversation ./data/conversation.json
 ```
 
-### 🔥 Override Output Path
+### Override Output Path
 
 ```bash
 python -m convergence --conversation ./data/conversation.json \
                      --output custom_output.wav
 ```
 
-## 🔥 AI Transcript Generation
+## AI Transcript Generation
 
-### 🔥 Generate with Specific Parameters
+### Generate with Specific Parameters
 
 ```bash
 python -m convergence --generate-transcript \
@@ -78,13 +78,13 @@ python -m convergence --generate-transcript \
                      --vibe "Academic and curious"
 ```
 
-### 🔥 Use Defaults
+### Use Defaults
 
 ```bash
 python -m convergence --generate-transcript
 ```
 
-### 🔥 Two-Step Process
+### Two-Step Process
 
 First generate the transcript:
 ```bash
@@ -96,7 +96,7 @@ Then convert to audio:
 python -m convergence --conversation output/conversation_[timestamp].json
 ```
 
-## 🔥 Command Line Options
+## Command Line Options
 
 | Option | Short | Description | Default |
 |--------|-------|-------------|---------|
@@ -110,7 +110,7 @@ The following options provide complete control over conversation generation:
 | `--generate-transcript` | `-g` | Generate transcript only. | False |
 | `--env` | `-e` | Environment file. | .env |
 
-## 🔥 Tips
+## Tips
 
 1. **Vibe Examples**: "Professional", "Casual", "Academic", "Enthusiastic", "Mysterious".
    The vibe parameter dramatically influences the tone and style of generated conversations.
@@ -121,7 +121,7 @@ The following options provide complete control over conversation generation:
 4. **Output**: WAV format provides best quality.
    Uncompressed audio ensures the highest fidelity for your generated conversations.
 
-## 🔥 Next Steps
+## Next Steps
 
 - Explore [Features](FEATURES) for advanced capabilities.
   Discover all the powerful features available for creating dynamic conversations.
