@@ -77,10 +77,10 @@ curl -O http://localhost:8000/convergence/download/convergence_audio_20240101_12
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `prompt` | string | Yes | The conversation topic or scenario |
-| `duration` | integer | No | Conversation length in minutes (default: 5) |
-| `vibe` | string | No | The tone/style of the conversation |
-| `outline_url` | string | No | URL to a document to guide the conversation |
+| `prompt` | string | Yes | The conversation topic or scenario. |
+| `duration` | integer | No | Conversation length in minutes (default: 5). |
+| `vibe` | string | No | The tone/style of the conversation. |
+| `outline_url` | string | No | URL to a document to guide the conversation. |
 
 ## 🔥 Response Format
 
