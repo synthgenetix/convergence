@@ -90,41 +90,41 @@ The only limit is your imagination.
 
 .. toctree::
    :maxdepth: 2
-   :caption: 🔥 Getting Started
+   :caption: ▲ Getting Started
    :hidden:
 
-   🔥 Setup. <home/SETUP>
-   🔥 SDK Usage. <home/SDK_USAGE>
-   🔥 Features. <home/FEATURES>
+   ▲ Setup. <home/SETUP>
+   ▲ SDK Usage. <home/SDK_USAGE>
+   ▲ Features. <home/FEATURES>
 
 .. toctree::
    :maxdepth: 2
-   :caption: 🔥 Integration.
+   :caption: ▲ Integration.
    :hidden:
 
-   🔥 API Usage. <home/API_USAGE>
-   🔥 Self Hosting. <home/SELF_HOST>
-   🔥 API Keys. <home/API_KEY_MANAGEMENT>
+   ▲ API Usage. <home/API_USAGE>
+   ▲ Self Hosting. <home/SELF_HOST>
+   ▲ API Keys. <home/API_KEY_MANAGEMENT>
 
 .. toctree::
    :maxdepth: 2
-   :caption: 🔥 Development.
+   :caption: ▲ Development.
    :hidden:
 
-   🔥 Dev Setup. <home/DEV_SETUP>
-   🔥 Contributing. <home/CONTRIBUTIONS>
+   ▲ Dev Setup. <home/DEV_SETUP>
+   ▲ Contributing. <home/CONTRIBUTIONS>
 
 .. toctree::
    :maxdepth: 1
-   :caption: 🔥 API Reference.
+   :caption: ▲ API Reference.
    :hidden:
 
-   🔥 Modules. <api/modules>
+   ▲ Modules. <api/modules>
 
 .. toctree::
-   :caption: 🔥 Links.
+   :caption: ▲ Links.
    :hidden:
 
-   🔥 GitHub. <https://github.com/prodigaltech/convergence>
-   🔥 PyPI. <https://pypi.org/project/convergence>
-   🔥 Issues. <https://github.com/prodigaltech/convergence/issues>
+   ▲ GitHub. <https://github.com/prodigaltech/convergence>
+   ▲ PyPI. <https://pypi.org/project/convergence>
+   ▲ Issues. <https://github.com/prodigaltech/convergence/issues>
